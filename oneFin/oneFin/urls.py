@@ -14,8 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+# http://localhost:8000/register/ -- Post -- done
+# http://localhost:8000/movies/ -- get -- done
+# http://localhost:8000/collection/ -- get  -- done
+# http://localhost:8000/collection/ -- post -- done
+# http://localhost:8000/collection/<collection_uuid>/ -- put -- Done
+# http://localhost:8000/collection/<collection_uuid>/ -- Delete -- Done
+# http://localhost:8000/request-count/ -- get
+# http://localhost:8000/request-count/reset/ -- post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('registerApp.urls')),
+    path('movies/', include('movieApp.urls')),
+    path('collection/', include('collectionApp.urls')),
+    path('request-count/', include('requestCountApp.urls')),
+    
 ]
